@@ -1,0 +1,14 @@
+name: Validate statistical invariants
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.1'
+      - name: Install fast-check dependency
+        run: Rscript -e 'install.packages("survival", repos="https://cloud.r-project.org")'
+      - name: Check preprocessing and scoring invariants
+        run: Rscript tests/validate.R
