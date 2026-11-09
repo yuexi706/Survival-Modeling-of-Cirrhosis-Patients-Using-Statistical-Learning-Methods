@@ -1,0 +1,13 @@
+.DS_Store
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+renv/library/
+renv/staging/
+renv/cache/
+work/
+*.log
+*.zip
+*.rds
+*.RDS
